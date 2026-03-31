@@ -1,0 +1,366 @@
+/* ============================================
+   RETRO GEOCITIES VIBES circa 1999
+   ============================================ */
+
+/* -- Web-safe fonts, just like the old days -- */
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&family=Comic+Neue:wght@400;700&display=swap');
+
+:root {
+    --bg-color: #1a0a2e;
+    --text-color: #00ff00;
+    --link-color: #ff00ff;
+    --link-hover: #ffff00;
+    --accent-1: #ff6600;
+    --accent-2: #00ccff;
+    --accent-3: #ff3399;
+    --border-color: #ff00ff;
+    --card-bg: rgba(0, 0, 0, 0.6);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(255, 0, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 204, 255, 0.08) 0%, transparent 50%),
+        url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='1' cy='1' r='1' fill='rgba(255,255,255,0.05)'/%3E%3C/svg%3E");
+    color: var(--text-color);
+    font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* -- Skip link for accessibility -- */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent-1);
+    color: #000;
+    padding: 8px;
+    z-index: 100;
+    font-family: sans-serif;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* -- Layout -- */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* -- Header -- */
+header {
+    text-align: center;
+    padding: 30px 0;
+    border-bottom: 3px dashed var(--accent-3);
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.8rem;
+    color: var(--accent-2);
+    text-shadow:
+        3px 3px 0 var(--accent-3),
+        -1px -1px 0 var(--link-color);
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+header .subtitle {
+    font-family: 'VT323', monospace;
+    font-size: 1.4rem;
+    color: var(--accent-1);
+    letter-spacing: 2px;
+}
+
+/* -- Navigation -- */
+nav {
+    text-align: center;
+    padding: 15px 0;
+    margin-bottom: 30px;
+    border: 2px solid var(--border-color);
+    background: var(--card-bg);
+}
+
+nav a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+    margin: 0 15px;
+    padding: 5px 10px;
+    transition: all 0.2s;
+}
+
+nav a:hover,
+nav a:focus {
+    color: var(--link-hover);
+    text-shadow: 0 0 10px var(--link-hover);
+    outline: 2px solid var(--link-hover);
+    outline-offset: 2px;
+}
+
+nav .separator {
+    color: var(--accent-1);
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+}
+
+/* -- Marquee banner -- */
+.marquee-container {
+    background: linear-gradient(90deg, var(--accent-3), var(--accent-1), var(--accent-2), var(--accent-3));
+    color: #000;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem;
+    padding: 8px 0;
+    margin-bottom: 25px;
+    text-align: center;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+.marquee-text {
+    display: inline-block;
+    animation: marquee 15s linear infinite;
+    white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee-text {
+        animation: none;
+    }
+}
+
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* -- Main content -- */
+main {
+    min-height: 50vh;
+}
+
+h2 {
+    font-family: 'VT323', monospace;
+    font-size: 2rem;
+    color: var(--accent-2);
+    border-bottom: 2px dotted var(--accent-1);
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+    color: var(--accent-3);
+    margin-bottom: 10px;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+a:hover,
+a:focus {
+    color: var(--link-hover);
+    text-shadow: 0 0 8px var(--link-hover);
+}
+
+a:visited {
+    color: #cc66ff;
+}
+
+/* -- Cards for projects, blog posts, etc. -- */
+.card {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin-bottom: 8px;
+}
+
+.card p {
+    margin-bottom: 10px;
+}
+
+.card .tags {
+    font-family: 'VT323', monospace;
+    color: var(--accent-1);
+    font-size: 1.1rem;
+}
+
+/* -- Image gallery -- */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.gallery-item {
+    border: 3px solid var(--border-color);
+    padding: 5px;
+    background: var(--card-bg);
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.gallery-item:hover,
+.gallery-item:focus-within {
+    transform: scale(1.03);
+    border-color: var(--link-hover);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.gallery-item .caption {
+    font-family: 'VT323', monospace;
+    text-align: center;
+    padding: 8px 5px;
+    color: var(--accent-2);
+    font-size: 1.1rem;
+}
+
+/* -- Blog post styles -- */
+.post-date {
+    font-family: 'VT323', monospace;
+    color: var(--accent-1);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.post-content {
+    line-height: 1.8;
+}
+
+.post-content p {
+    margin-bottom: 15px;
+}
+
+.post-content ul, .post-content ol {
+    margin: 15px 0;
+    padding-left: 30px;
+}
+
+.post-content li {
+    margin-bottom: 5px;
+}
+
+.post-content code {
+    font-family: 'VT323', monospace;
+    background: rgba(255, 0, 255, 0.15);
+    padding: 2px 6px;
+    color: var(--accent-2);
+}
+
+.post-content blockquote {
+    border-left: 4px solid var(--accent-3);
+    padding-left: 15px;
+    color: var(--accent-1);
+    font-style: italic;
+    margin: 15px 0;
+}
+
+/* -- Decorative elements -- */
+.sparkle {
+    display: inline-block;
+    animation: sparkle 1.5s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sparkle {
+        animation: none;
+    }
+}
+
+.divider {
+    text-align: center;
+    color: var(--accent-3);
+    font-size: 1.5rem;
+    margin: 25px 0;
+    letter-spacing: 8px;
+}
+
+/* -- Webring / footer -- */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 40px;
+    border-top: 3px dashed var(--accent-3);
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    color: var(--accent-1);
+}
+
+footer .counter {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+footer a {
+    color: var(--accent-2);
+}
+
+/* -- Under construction badge -- */
+.under-construction {
+    text-align: center;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.65rem;
+    color: var(--link-hover);
+    border: 3px dashed var(--link-hover);
+    padding: 15px;
+    margin: 20px 0;
+    background: rgba(255, 255, 0, 0.05);
+    line-height: 1.8;
+}
+
+/* -- Responsive -- */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.1rem;
+    }
+
+    header .subtitle {
+        font-size: 1.1rem;
+    }
+
+    nav a {
+        display: block;
+        margin: 8px 0;
+    }
+
+    nav .separator {
+        display: none;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}
